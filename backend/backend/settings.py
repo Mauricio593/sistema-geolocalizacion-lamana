@@ -108,7 +108,7 @@ STATIC_URL = 'static/'
 # Directorio donde Render agrupará los archivos estáticos
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Activa la compresión de archivos estáticos
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 MEDIA_URL = '/media/'
 # Indica a Django que guarde las imágenes en Cloudinary
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
