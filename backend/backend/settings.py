@@ -104,7 +104,7 @@ USE_TZ = True
 # ==============================================================================
 # CONFIGURACIÓN DE ARCHIVOS ESTÁTICOS Y MULTIMEDIA (CLOUDINARY)
 # ==============================================================================
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 # Directorio donde Render agrupará los archivos estáticos
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Activa la compresión de archivos estáticos
