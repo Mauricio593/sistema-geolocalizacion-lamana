@@ -33,6 +33,17 @@ const asignarColorPorActividad = (actividad) => {
     return coloresMarcadores[suma % coloresMarcadores.length];
 };
 
+// 🖼️ FUNCIÓN PARA CORREGIR LA URL DE LA IMAGEN EN EL MODO EDICIÓN
+const obtenerUrlImagen = (url) => {
+    if (!url) return null;
+    if (url.startsWith('http')) return url;
+    const path = url.startsWith('/') ? url : `/${url}`;
+    if (!path.startsWith('/media/')) {
+        return `https://backend-lamana.onrender.com/media${path}`;
+    }
+    return `https://backend-lamana.onrender.com${path}`;
+};
+
 // 📍 Sub-componente para capturar los clics en el mapa
 function CapturadorDeClics({ setNuevaCoordenada, setEmprendimientoEditando, limpiarFormulario }) {
     useMapEvents({
@@ -331,7 +342,7 @@ function AdminMapa() {
             setAsuntoInvitacion('');
             setMensajeInvitacion('');
             setArchivoInvitacion(null);
-            setMostrarInvitacion(false); // 🌟 Se cierra automáticamente al enviar con éxito
+            setMostrarInvitacion(false); 
             
             const inputArchivo = document.getElementById('input-archivo-invitacion');
             if(inputArchivo) inputArchivo.value = '';
@@ -345,7 +356,6 @@ function AdminMapa() {
         }
     };
 
-    // 👤 NUEVA FUNCIÓN: Registrar nuevo administrador / Staff
     const crearNuevoAdmin = async (e) => {
         e.preventDefault();
         
@@ -357,8 +367,6 @@ function AdminMapa() {
         setRegistrandoAdmin(true);
         try {
             const token = localStorage.getItem('token');
-            // Nota: Aquí añadimos is_staff: true. Tu endpoint backend ('registrar-admin/')
-            // debe procesar este campo de manera segura.
             const payload = {
                 ...adminData,
                 is_staff: true 
@@ -397,18 +405,20 @@ function AdminMapa() {
 
     const centroLaMana = [-0.9405, -79.2245];
 
+    // Se eliminan los estilos de CARTO y se estandariza con OpenStreetMap para evitar requerimiento de API KEY
     const capasDisponibles = {
         google_calles: { url: "https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}", attribution: "© Google Maps" },
         google_satelite: { url: "https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}", attribution: "© Google Satélite" },
-        moderno_claro: { url: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", attribution: "© OpenStreetMap © CARTO" },
-        moderno_oscuro: { url: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", attribution: "© OpenStreetMap © CARTO" }
+        moderno_claro: { url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", attribution: "© OpenStreetMap contributors" },
+        moderno_oscuro: { url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", attribution: "© OpenStreetMap contributors" }
     };
 
     const empOriginal = emprendimientoEditando ? emprendimientos.find(emp => emp.id === emprendimientoEditando) : null;
 
-    const preview1 = imagen1 ? URL.createObjectURL(imagen1) : (empOriginal?.imagen_1 || null);
-    const preview2 = imagen2 ? URL.createObjectURL(imagen2) : (empOriginal?.imagen_2 || null);
-    const preview3 = imagen3 ? URL.createObjectURL(imagen3) : (empOriginal?.imagen_3 || null);
+    // Se actualiza la obtención de la URL para usar el helper obtenerUrlImagen
+    const preview1 = imagen1 ? URL.createObjectURL(imagen1) : obtenerUrlImagen(empOriginal?.imagen_1);
+    const preview2 = imagen2 ? URL.createObjectURL(imagen2) : obtenerUrlImagen(empOriginal?.imagen_2);
+    const preview3 = imagen3 ? URL.createObjectURL(imagen3) : obtenerUrlImagen(empOriginal?.imagen_3);
 
     return (
         <div className="admin-container">
