@@ -1,0 +1,49 @@
+/* =========================================
+   BARRA DE NAVEGACIÓN (NAVBAR)
+   ========================================= */
+.navbar-container {
+    /* ✨ Aquí está el degradado de rojo a azul */
+    background: linear-gradient(135deg, #d32f2f 0%, #1976d2 100%);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Una suave sombra abajo */
+}
+
+.navbar-brand {
+    color: white;
+    margin: 0;
+    font-size: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Ayuda a que se lea mejor sobre el fondo */
+}
+
+.navbar-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.navbar-link-mapa {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    transition: opacity 0.2s ease;
+}
+
+.navbar-link-mapa:hover {
+    opacity: 0.8; /* Efecto al pasar el mouse */
+}
+
+.navbar-link-admin {
+    color: #4ade80; /* Mantenemos tu color verde */
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* Sombra un poco más fuerte para el verde */
+    transition: color 0.2s ease;
+}
+
+.navbar-link-admin:hover {
+    color: #22c55e; /* Un verde un poco más oscuro al pasar el mouse */
+}

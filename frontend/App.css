@@ -1,0 +1,49 @@
+/* =========================================
+   DISEÑO RESPONSIVO PARA LOS MAPAS
+   ========================================= */
+
+/* 1. Panel de Administración (AdminMapa.jsx) */
+.contenedor-admin {
+    display: flex;
+    height: calc(100vh - 60px);
+    flex-direction: row; /* En PC: panel a la izquierda, mapa a la derecha */
+}
+
+.panel-lateral {
+    width: 360px;
+    padding: 20px;
+    background-color: white;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+/* 2. Barra de Búsqueda (Mapa.jsx) */
+.barra-busqueda {
+    padding: 15px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* 📱 REGLAS PARA CELULARES (Pantallas menores a 768px) */
+@media (max-width: 768px) {
+    .contenedor-admin {
+        flex-direction: column-reverse; /* En celular: Mapa arriba, Formulario abajo */
+    }
+
+    .panel-lateral {
+        width: 100%; /* Ocupa todo el ancho del teléfono */
+        height: 50%; /* Ocupa la mitad inferior de la pantalla */
+        box-sizing: border-box;
+        border-top: 3px solid #1a7a4a; /* Línea verde para separar del mapa */
+        border-radius: 15px 15px 0 0; /* Bordes redondeados modernos */
+    }
+
+    .barra-busqueda {
+        flex-direction: column; /* Apila el buscador y el botón rojo uno sobre otro */
+        padding: 10px;
+    }
+}

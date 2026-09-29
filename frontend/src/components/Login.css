@@ -1,0 +1,191 @@
+/* Login.css */
+
+/* Contenedor principal a pantalla completa */
+.login-wrapper {
+    display: flex;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+}
+
+/* =========================================
+   🌟 LADO IZQUIERDO (Imagen)
+   ========================================= */
+.login-image-side {
+    flex: 1;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 100%),
+        url('/utclamana2.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* 👇 Esto elimina cualquier línea, sombra o borde divisorio */
+    box-shadow: none !important; 
+    border: none !important;
+    outline: none !important;
+    margin-right: -1px; /* Evita el espacio de 1px que a veces dejan los navegadores */
+}
+
+/* =========================================
+   🌟 LADO DERECHO (Formulario)
+   ========================================= */
+.login-form-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    
+    /* 👇 Aseguramos que este lado tampoco tenga bordes ocultos */
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
+}
+
+/* Caja del formulario */
+.login-box {
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+}
+
+.login-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 32px;
+    color: #003366; /* Azul UTC */
+    margin-bottom: 40px;
+    margin-top: 0;
+}
+
+.login-error {
+    background-color: rgba(255, 77, 77, 0.1);
+    color: #d93025;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 77, 77, 0.3);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* =========================================
+   🌟 CAMPOS DE TEXTO (Inputs)
+   ========================================= */
+.login-input-group {
+    position: relative;
+    width: 100%;
+}
+
+.login-input-group input {
+    width: 100%;
+    padding: 15px 20px;
+    background: #f0f2f5; /* Gris muy clarito */
+    border: 1px solid #e4e6eb;
+    border-radius: 8px; /* Bordes más profesionales */
+    color: #333;
+    font-size: 15px;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+
+.login-input-group input::placeholder {
+    color: #888;
+}
+
+.login-input-group input:focus {
+    background: #ffffff;
+    border: 1px solid #003366; /* Borde Azul UTC al hacer clic */
+    box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+}
+
+/* Ícono de mostrar/ocultar contraseña */
+.password-eye {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+}
+
+/* =========================================
+   🌟 BOTÓN DE INGRESO
+   ========================================= */
+.login-btn-submit {
+    background-color: #ffc107; /* Amarillo UTC */
+    color: #333; /* Letra oscura para buen contraste */
+    border: none;
+    padding: 15px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+}
+
+.login-btn-submit:hover {
+    background-color: #e0a800; /* Amarillo más oscuro */
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   🌟 OPCIONES (Recordarme / Olvidé contraseña)
+   ========================================= */
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.forgot-link {
+    color: #003366; /* Azul UTC */
+    text-decoration: none;
+    font-weight: 500;
+    transition: text-decoration 0.2s;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+/* =========================================
+   🌟 RESPONSIVE (Celulares)
+   ========================================= */
+@media (max-width: 768px) {
+    .login-wrapper {
+        flex-direction: column; /* Apila los elementos en móviles */
+    }
+    
+    .login-image-side {
+        flex: 0.4; /* La imagen ocupa menos espacio en celular */
+        min-height: 250px;
+    }
+    
+    .login-form-side {
+        flex: 1;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        margin-top: -20px; /* Monta un poco el formulario sobre la imagen */
+    }
+}

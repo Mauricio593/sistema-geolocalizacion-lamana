@@ -1,0 +1,252 @@
+/* Inicio.css */
+.inicio-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   🌟 NAVBAR (Barra de Navegación)
+   ========================================= */
+.inicio-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.inicio-logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #003366; /* Azul UTC */
+    cursor: pointer;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: #003366; /* Azul UTC */
+}
+
+.btn-login-nav {
+    background-color: #003366; /* Azul UTC */
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-login-nav:hover {
+    background-color: #001f40; /* Azul UTC más oscuro */
+}
+
+/* =========================================
+   🌟 HERO SECTION (Optimizado sin el fondo oscuro) 
+   ========================================= */
+.inicio-hero {
+    background-image: url('/utclamana.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 120vh;
+    display: flex;
+    /* Ubica los textos abajo y a la derecha sobre el espacio libre */
+    justify-content: flex-end; 
+    align-items: flex-end; 
+    padding: 40px 5% 80px 5%; 
+    box-sizing: border-box;
+}
+
+.hero-content {
+    background: transparent; /* Eliminamos por completo el cuadro negro */
+    padding: 20px 0;
+    max-width: 550px; 
+    text-align: right; /* Flujo de texto alineado a la derecha */
+}
+
+.hero-content h1 {
+    font-size: 2.6rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #ffffff;
+    line-height: 1.2;
+    /* Sombra de alta definición para lectura perfecta sobre fondos claros/oscuros */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0px 0px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #ffffff;
+    font-weight: 500;
+    /* Sombra equilibrada para el párrafo descriptor */
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.9), 0px 0px 3px rgba(0, 0, 0, 0.8);
+}
+
+.btn-hero-accion {
+    background-color: #ffc107; /* Amarillo UTC */
+    color: #333;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Resalta el botón amarillo */
+    transition: transform 0.2s, background-color 0.2s;
+    display: inline-block;
+}
+
+.btn-hero-accion:hover {
+    transform: translateY(-3px);
+    background-color: #e0a800;
+}
+
+/* =========================================
+   🌟 SECCIONES GENERALES
+   ========================================= */
+.inicio-destacados, .inicio-resenas {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.inicio-destacados h2, .inicio-resenas h2 {
+    font-size: 2.2rem;
+    color: #003366; /* Azul UTC */
+    margin-bottom: 10px;
+}
+
+.subtitulo-seccion {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* =========================================
+   🌟 GRID DE EMPRENDIMIENTOS
+   ========================================= */
+.grid-emprendimientos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card-emprendimiento {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: left;
+    transition: transform 0.3s;
+}
+
+.card-emprendimiento:hover {
+    transform: translateY(-5px);
+}
+
+.card-imagen {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.badge-actividad {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 51, 102, 0.95); /* Azul UTC semitransparente */
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.card-info h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.card-info p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* =========================================
+   🌟 SECCIÓN DE RESEÑAS
+   ========================================= */
+.inicio-resenas {
+    background-color: white;
+}
+
+.grid-resenas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.card-resena {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.resena-estrellas {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.resena-texto {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.resena-autor {
+    color: #003366; /* Azul UTC */
+    margin: 0;
+}
+
+/* =========================================
+   🌟 FOOTER (Pie de Página)
+   ========================================= */
+.inicio-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+}
