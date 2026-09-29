@@ -52,10 +52,10 @@ const obtenerUrlImagen = (url) => {
     const path = url.startsWith('/') ? url : `/${url}`;
     
     if (!path.startsWith('/media/')) {
-        return `http://localhost:8000/media${path}`;
+        return `https://backend-lamana.onrender.com/media${path}`;
     }
     
-    return `http://localhost:8000${path}`;
+    return `https://backend-lamana.onrender.com${path}`;
 };
 
 // 🚀 COMPONENTE: Dibuja la ruta y calcula distancia/tiempo
@@ -162,6 +162,7 @@ function Mapa() {
         setInfoRuta(null); 
     };
 
+    // 🗺️ CORRECCIÓN AQUÍ: Se eliminó CARTO y se usa OpenStreetMap y Google
     const capasDisponibles = {
         google_calles: {
             url: "https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
@@ -172,12 +173,12 @@ function Mapa() {
             attribution: "© Google Satélite"
         },
         moderno_claro: {
-            url: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-            attribution: "© OpenStreetMap © CARTO"
+            url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            attribution: "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
         },
         moderno_oscuro: {
-            url: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-            attribution: "© OpenStreetMap © CARTO"
+            url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", // Se usa OSM también para evitar el error 403
+            attribution: "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
         }
     };
 
@@ -198,10 +199,9 @@ function Mapa() {
                     onChange={(e) => setCapaMapa(e.target.value)}
                     className="mapa-select"
                 >
-                    <option value="moderno_claro">✨ Diseño Moderno</option>
+                    <option value="moderno_claro">✨ OpenStreetMap</option>
                     <option value="google_calles">🗺️ Google Calles</option>
                     <option value="google_satelite">🛰️ Satélite Híbrido</option>
-                    <option value="moderno_oscuro">🌙 Modo Nocturno</option>
                 </select>
                 
                 {infoRuta && (
