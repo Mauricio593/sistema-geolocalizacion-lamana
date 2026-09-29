@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Creamos una conexión base hacia nuestro backend en Django
 const api = axios.create({
-    baseURL: 'https://backend-lamana.onrender.com', 
+    baseURL: 'https://backend-lamana.onrender.com/api/' 
      // <-- Aquí está la corrección con las barras //
 });
 
