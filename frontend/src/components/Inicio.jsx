@@ -80,7 +80,7 @@ function Inicio() {
 
             {/* 🌟 PIE DE PÁGINA */}
             <footer className="inicio-footer">
-                <p>© {new Date().getFullYear()} Red de Emprendedores. Todos los derechos reservados.</p>
+                <p>© {new Date().getFullYear()} sistema creado por estudiantes Loor Mauricio , Cedeño Dayana , Zamora Edison. de la Carrera de Sistemas de Informacion</p>
             </footer>
         </div>
     );
